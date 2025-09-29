@@ -373,7 +373,6 @@ cursor: pointer;
 }
 .navbar ul li a{
     box-sizing: border-box;
-    border: 1px solid red;
     line-height: 1.7rem;
 }
 
