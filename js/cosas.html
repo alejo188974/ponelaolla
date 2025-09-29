@@ -1,0 +1,88 @@
+<!-- Agregar en TODAS las páginas (dentro del <body>) -->
+
+<!-- 1. CHAT FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/549XXXXXXXXXX" target="_blank" 
+   style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-size:18px; box-shadow:0 2px 6px rgba(0,0,0,0.3); z-index:1000;">
+   💬 Chatear
+</a>
+
+
+<!-- 2. BUSCADOR DE PRODUCTOS (en la página de productos, encima del grid) -->
+<div style="max-width:1024px; margin:20px auto; text-align:center;">
+  <input type="text" id="buscador" placeholder="Buscar productos..." 
+         style="width:80%; padding:10px; font-size:16px; border:1px solid #ccc; border-radius:5px;">
+</div>
+
+<!-- Grid de productos -->
+<div id="productos-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1024px; margin:0 auto;">
+  <div class="producto">
+    <img src="ruta/a/imagen1.jpg" alt="Producto 1">
+    <p>Producto 1</p>
+  </div>
+  <div class="producto">
+    <img src="ruta/a/imagen2.jpg" alt="Producto 2">
+    <p>Producto 2</p>
+  </div>
+  <div class="producto">
+    <img src="ruta/a/imagen3.jpg" alt="Producto 3">
+    <p>Producto 3</p>
+  </div>
+  <!-- Más productos... -->
+</div>
+
+<!-- Script para filtrar productos -->
+<script>
+  document.getElementById("buscador").addEventListener("input", function() {
+    const filtro = this.value.toLowerCase();
+    document.querySelectorAll("#productos-grid .producto").forEach(function(prod) {
+      const texto = prod.innerText.toLowerCase();
+      prod.style.display = texto.includes(filtro) ? "block" : "none";
+    });
+  });
+</script>
+
+
+
+<head>
+  <!-- Codificación y responsive -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título SEO -->
+  <title>Venta de pastas caseras en San Justo | Poné la olla</title>
+
+  <!-- Descripción SEO -->
+  <meta name="description" content="Poné la olla es tu tienda de confianza en San Justo para comprar pastas frescas, caseras y con el mejor sabor. Descubrí nuestros productos artesanales.">
+
+  <!-- Palabras clave (opcional) -->
+  <meta name="keywords" content="pastas caseras, venta de pastas, San Justo, fideos, ravioles, sorrentinos, Poné la olla, pastas frescas, pastas artesanales">
+
+  <!-- Autor -->
+  <meta name="author" content="Poné la olla">
+
+  <!-- Robots para buscadores -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Geolocalización -->
+  <meta name="geo.region" content="AR-B">
+  <meta name="geo.placename" content="San Justo, Buenos Aires">
+  <meta name="geo.position" content="-34.6833;-58.5667">
+  <meta name="ICBM" content="-34.6833, -58.5667">
+
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Poné la olla | Venta de pastas en San Justo">
+  <meta property="og:description" content="Tienda de pastas frescas caseras en San Justo. Descubrí nuestros sabores.">
+  <meta property="og:image" content="https://tusitio.com/imagen-og.jpg"><!-- Cambiar por la URL de tu imagen -->
+  <meta property="og:url" content="https://tusitio.com"><!-- Cambiar por la URL real de tu sitio -->
+  <meta property="og:type" content="website">
+
+  <!-- Ícono del sitio -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Fuente y librerías opcionales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="estilos.css">
+</head>

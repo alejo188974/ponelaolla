@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Pedidos | Poné la olla</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background:#f2f4f8; margin:0; padding:0; }
+  .container { max-width: 1400px; margin:30px auto; padding:20px; background:#fff; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+  h1 { text-align:center; margin-bottom:20px; color:#333; }
+  .controls { display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:15px; }
+  .controls input, .controls select { padding:8px 12px; font-size:14px; border-radius:6px; border:1px solid #ccc; margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; margin-top:20px; }
+  thead { background:#25D366; color:white; }
+  th,td { padding:12px 8px; text-align:center; font-size:14px; border-bottom:1px solid #eee; }
+  tbody tr:hover { background:#f1f1f1; }
+  .estado { font-weight:bold; padding:4px 10px; border-radius:12px; color:white; }
+  .Pendiente { background:#f44336; }
+  .Listo { background:#ff9800; }
+  .Entregado { background:#4caf50; }
+  button { padding:5px 10px; border:none; border-radius:6px; cursor:pointer; font-size:13px; margin:2px; transition:0.2s; }
+  .cambiar-estado { background:#2196f3; color:white; }
+  .cambiar-estado:hover { background:#1976d2; }
+  .borrar-pedido { background:#f44336; color:white; }
+  .borrar-pedido:hover { background:#d32f2f; }
+  .crear-usuario { background:#25D366; color:white; margin-bottom:15px; }
+  .crear-usuario:hover { background:#20b857; }
+  #logout { background:#34495e; color:white; float:right; margin-bottom:10px; }
+  #logout:hover { background:#2c3e50; }
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <!-- 🎵 Campanita -->
+  <!-- Select de sonidos -->
+<label for="sonido">🔔 Sonido de notificación:</label>
+<select id="sonido">
+  <option value="sounds/campanita.mp3">Campanita</option>
+  <option value="sounds/camapanita2.mp3">Campanita 2</option>
+  <option value="sounds/camapanita3.mp3">Campanita 3</option>
+  <option value="sounds/timbre.mp3">Timbre</option>
+  
+</select>
+
+<audio id="notificacion" preload="auto"></audio>
+  <!-- Botón oculto o modal inicial -->
+  <button id="activar-sonido">🔔 Activar sonido</button>
+  <button id="logout">Cerrar Sesión</button>
+  <h1>📋 Admin Pedidos</h1>
+
+  <div class="controls">
+    <input type="text" id="buscar" placeholder="Buscar por cliente o producto...">
+    <select id="filtro-estado">
+      <option value="">Filtrar por estado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Listo">Listo</option>
+      <option value="Entregado">Entregado</option>
+    </select>
+  </div>
+
+  <table id="tabla-pedidos">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Productos</th>
+        <th>Cantidad</th>
+        <th>Comentario</th>
+        <th>Forma Pago</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Botón solo visible para superadmin -->
+  <button id="crear-usuario-btn" class="crear-usuario" style="display:none;">Crear Usuario</button>
+
+  <!-- Tabla de usuarios -->
+  <table id="tabla-usuarios" style="display:none;">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const supabaseUrl = "https://uyxtdfkryqpmikdtyalz.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5eHRkZmtyeXFwbWlrZHR5YWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyMjcwODgsImV4cCI6MjA3MzgwMzA4OH0.OxCbCbFSyDkqK7UXF3RXqizM-vTZL_uLOw936O2H2a4"; // asegurate que sea el anon key
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// check login
+if (localStorage.getItem("adminLogged") !== "true") {
+  window.location.href = "index.html";
+}
+const currentUser = JSON.parse(localStorage.getItem("userData") || "{}");
+
+const tbodyPedidos = document.querySelector("#tabla-pedidos tbody");
+const tbodyUsuarios = document.querySelector("#tabla-usuarios tbody");
+const buscarInput = document.getElementById("buscar");
+const filtroEstado = document.getElementById("filtro-estado");
+const logoutBtn = document.getElementById("logout");
+const crearUsuarioBtn = document.getElementById("crear-usuario-btn");
+
+// Variables de sonidos
+const campanita = document.getElementById("notificacion");
+const activarBtn = document.getElementById("activar-sonido");
+const selectorSonido = document.getElementById("sonido");
+
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("adminLogged");
+  localStorage.removeItem("userData");
+  window.location.href = "login.html";
+});
+// Activar sonido
+activarBtn.addEventListener("click", () => {
+      campanita.play().then(() => {
+        campanita.pause();
+        campanita.currentTime = 0;
+        console.log("Sonido habilitado ✔");
+        activarBtn.style.display = "none"; // ocultar el botón
+      }).catch(err => console.error("Error habilitando sonido:", err));
+    });
+
+// Guardar elección en localStorage
+selectorSonido.addEventListener("change", () => {
+  const sonidoElegido = selectorSonido.value;
+  campanita.src = sonidoElegido;
+  localStorage.setItem("sonidoNotificacion", sonidoElegido);
+});
+
+// Cargar sonido elegido al iniciar
+const guardado = localStorage.getItem("sonidoNotificacion");
+if (guardado) {
+  campanita.src = guardado;
+  selectorSonido.value = guardado;
+} else {
+  campanita.src = selectorSonido.value;
+}
+
+// 🔔 Suscripción en tiempo real
+    supabase
+      .channel("pedidos-changes")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "pedidos" }, payload => {
+        console.log("Nuevo pedido:", payload.new);
+
+        // Re-renderiza la tabla
+        cargarPedidos();
+
+        // 🎵 Toca campanita
+        campanita.play().catch(err => console.warn("El navegador bloqueó el autoplay:", err));
+      })
+      .subscribe();
+
+    cargarPedidos();
+
+
+// pedidos
+let pedidosCache = [];
+async function cargarPedidos() {
+  const { data: pedidos, error } = await supabase.from("pedidos").select("*").order("fecha", { ascending: true });
+  if (error) return console.error(error);
+  pedidosCache = pedidos;
+  renderTablaPedidos(pedidosCache);
+}
+
+function renderTablaPedidos(pedidos) {
+  tbodyPedidos.innerHTML = "";
+  pedidos.forEach(p => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td data-label="Cliente">${p.cliente}</td>
+      <td data-label="Teléfono">${p.telefono}</td>
+      <td data-label="Dirección">${p.direccion}</td>
+      <td data-label="Productos">${p.productos.map(pr => pr.nombre).join("<br>")}</td>
+      <td data-label="Cantidad">${p.productos.map(pr => pr.cantidad).join("<br>")}</td>
+      <td data-label="Comentario">${p.comentario}</td>
+      <td data-label="Forma Pago">${p.forma_pago}</td>
+      <td data-label="Fecha">${new Date(p.fecha).toLocaleString()}</td>
+      <td data-label="Estado"><span class="estado ${p.estado || 'Pendiente'}">${p.estado || 'Pendiente'}</span></td>
+      <td data-label="Acciones">
+        <button class="cambiar-estado" data-id="${p.id}"><i class="fa-solid fa-arrow-right"></i></button>
+        <button class="borrar-pedido" data-id="${p.id}"><i class="fa-solid fa-trash"></i></button>
+      </td>
+    `;
+    tbodyPedidos.appendChild(tr);
+  });
+  activarEventosPedidos();
+}
+
+function activarEventosPedidos() {
+  document.querySelectorAll(".cambiar-estado").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      const fila = btn.closest("tr");
+      const spanEstado = fila.querySelector(".estado");
+      const estadoActual = spanEstado.textContent;
+      let nuevoEstado = estadoActual === "Pendiente" ? "Listo" : estadoActual === "Listo" ? "Entregado" : "Pendiente";
+      await supabase.from("pedidos").update({ estado: nuevoEstado }).eq("id", id);
+      spanEstado.textContent = nuevoEstado;
+      spanEstado.className = `estado ${nuevoEstado}`;
+    });
+  });
+  document.querySelectorAll(".borrar-pedido").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      if (!confirm("¿Seguro que querés borrar este pedido?")) return;
+      await supabase.from("pedidos").delete().eq("id", id);
+      btn.closest("tr").remove();
+    });
+  });
+}
+
+buscarInput.addEventListener("input", filtrarPedidos);
+filtroEstado.addEventListener("change", filtrarPedidos);
+function filtrarPedidos() {
+  const busqueda = buscarInput.value.toLowerCase();
+  const estadoFiltro = filtroEstado.value;
+  const filtrados = pedidosCache.filter(p => {
+    const clienteMatch = p.cliente.toLowerCase().includes(busqueda);
+    const productoMatch = p.productos.some(pr => pr.nombre.toLowerCase().includes(busqueda));
+    const estadoMatch = estadoFiltro ? (p.estado || "Pendiente") === estadoFiltro : true;
+    return (clienteMatch || productoMatch) && estadoMatch;
+  });
+  renderTablaPedidos(filtrados);
+}
+
+// usuarios
+async function cargarUsuarios() {
+  const { data: usuarios, error } = await supabase.from("usuarios").select("*");
+  if (error) return console.error(error);
+
+  let filtrados = usuarios;
+  if (currentUser.rol === "admin") {
+    filtrados = usuarios.filter(u => u.rol !== "superadmin");
+  } else if (currentUser.rol === "usuario") {
+    return; // no muestra nada
+  }
+
+  if (currentUser.rol === "superadmin") {
+    crearUsuarioBtn.style.display = "block";
+  }
+
+  document.getElementById("tabla-usuarios").style.display = "table";
+  tbodyUsuarios.innerHTML = "";
+  filtrados.forEach(u => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${u.nombre}</td>
+      <td>${u.email}</td>
+      <td>
+        ${currentUser.rol !== "usuario" && u.email !== currentUser.email ? `
+        <select class="cambiar-rol" data-id="${u.id}">
+          <option value="usuario" ${u.rol==="usuario"?"selected":""}>Usuario</option>
+          <option value="admin" ${u.rol==="admin"?"selected":""}>Admin</option>
+          ${currentUser.rol==="superadmin"?`<option value="superadmin" ${u.rol==="superadmin"?"selected":""}>Superadmin</option>`:""}
+        </select>` : u.rol}
+      </td>
+      <td>
+        ${u.email !== currentUser.email ? `<button class="borrar-usuario" data-id="${u.id}"><i class="fa-solid fa-trash"></i></button>` : ""}
+      </td>
+    `;
+    tbodyUsuarios.appendChild(tr);
+  });
+  activarEventosUsuarios();
+}
+
+function activarEventosUsuarios() {
+  document.querySelectorAll(".cambiar-rol").forEach(sel => {
+    sel.addEventListener("change", async () => {
+      const id = sel.dataset.id;
+      const nuevoRol = sel.value;
+      await supabase.from("usuarios").update({ rol: nuevoRol }).eq("id", id);
+    });
+  });
+  document.querySelectorAll(".borrar-usuario").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      if (!confirm("¿Seguro que querés borrar este usuario?")) return;
+      await supabase.from("usuarios").delete().eq("id", id);
+      btn.closest("tr").remove();
+    });
+  });
+}
+
+crearUsuarioBtn.addEventListener("click", () => {
+  window.location.href = "crear-admin.html";
+});
+
+cargarPedidos();
+cargarUsuarios();
+</script>
+</body>
+</html>

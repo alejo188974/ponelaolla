@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastas | Poné la olla</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- CHAT FLOTANTE -->
+  <a href="https://wa.me/5491173687967" target="_blank" style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-size:18px; z-index:1000;">
+    💬 Chatear
+  </a>
+
+  <!-- BOTÓN CARRITO -->
+  <a href="carrito.html" class="btn-carrito">🛒 Ver carrito</a>
+  <div class="container">
+    <header>
+      <img class="logo" src="images/logo.png" alt="Logo Poné la olla">
+      <h1>Pastas frescas</h1>
+      <img class="cabana" src="images/cabana.png" alt="logo La Cabaña">
+      <div class="social-icons">
+        <a href="https:/www.instagram.com/ponelaollaok" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@pone.la.olla?_t=ZM-8wnMJIacrJ8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/5491173687967" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Productos ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="almacen.html">Almacén</a></li>
+            <li><a href="fiambres.html">Fiambres</a></li>
+            <li><a href="pastas.html">Pastas frescas</a></li>
+            <li><a href="tapas.html">Tapas</a></li>
+            <li><a href="bebidas.html">Bebidas</a></li>
+            <li><a href="lacteos.html">Lácteos</a></li>
+          </ul>
+        </li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="productos">
+
+        <!-- Productos -->
+         <!-- Pastas rellenas -->
+        <div class="producto">
+  <img src="images/pastas-frescas/verduras.png" alt="Ravioles de verduras">
+  <h3>Ravioles de verduras</h3>
+  <p>Ravioles rellenos con verduras.</p>
+  <p class="precio" data-precio="3400">$3.400</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles de verduras" data-precio="3400">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/ricota.jpg" alt="Ravioles de ricota">
+  <h3>Ravioles de ricota</h3>
+  <p>Ravioles rellenos con ricota.</p>
+  <p class="precio" data-precio="3400">$3.400</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles de ricota" data-precio="3400">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ricota-verduras.jpg" alt="Ravioles de ricota y verduras">
+  <h3>Ravioles de ricota y verduras</h3>
+  <p>Ravioles rellenos con ricota y verduras.</p>
+  <p class="precio" data-precio="3400">$3.400</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles de ricota y verduras" data-precio="3400">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/pollo.jpg" alt="ravioles de pollo y verduras">
+  <h3>Ravioles de pollo y verduras</h3>
+  <p>Ravioles rellenos con pollo y verduras.</p>
+  <p class="precio" data-precio="3400">$3.400</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles de pollo y verduras" data-precio="3400">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/4quesos.jpg" alt="Ravioles de 4 quesos">
+  <h3>Ravioles de 4 quesos</h3>
+  <p>Ravioles rellenos con 4 quesos.</p>
+  <p class="precio" data-precio="3400">$3.400</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles de 4 quesos" data-precio="3400">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/sorrentinos-ricota.jpg" alt="Sorrentinos de ricota, jamón y muzzarella">
+  <h3>Sorrentinos de ricota, jamón y muzzarella</h3>
+  <p>Sorrentinos rellenos con ricota, jamón y muzzarella.</p>
+  <p class="precio" data-precio="5200">$5.200</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Sorrentinos de ricota, jamón y muzzarella" data-precio="5200">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/sorrentinos-pollo.jpg" alt="Sorrentinos de pollo, jamón y verduras">
+  <h3>Sorrentinos de pollo, jamón y verduras</h3>
+  <p>Sorrentinos rellenos con pollo, jamón y verduras.</p>
+  <p class="precio" data-precio="5200">$5.200</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Sorrentinos de pollo, jamón y verduras" data-precio="5200">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/raviolones-ricota.png" alt="Raviolones de ricota, jamón y muzzarella">
+  <h3>Raviolones de ricota, jamón y muzzarella</h3>
+  <p>Raviolones rellenos con ricota, jamón y muzzarella.</p>
+  <p class="precio" data-precio="5200">$5.200</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Raviolones de ricota, jamón y muzzarella" data-precio="5200">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/raviolones-pollo.jpg" alt="Raviolones de pollo, jamón y verduras">
+  <h3>Raviolones de pollo, jamón y verduras</h3>
+  <p>Raviolones rellenos con pollo, jamón y verduras.</p>
+  <p class="precio" data-precio="5200">$5.200</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Raviolones de pollo, jamón y verduras" data-precio="5200">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ravioles-kilo-carne.png" alt="Ravioles de carne y espinaca">
+  <h3>Ravioles de carne y espinaca</h3>
+  <p>Ravioles rellenos con carne y espinaca de 1 kilo.</p>
+  <p class="precio" data-precio="6300">$6.300</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles con carne y espinaca 1 k" data-precio="6300">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ravioles-kilo-muzza.png" alt="Ravioles de 4 quesos">
+  <h3>Ravioles de 4 quesos</h3>
+  <p>Ravioles rellenos con 4 quesos de 1 kilo.</p>
+  <p class="precio" data-precio="6300">$6.300</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ravioles 4 quesos de 1 k" data-precio="6300">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/tortellettis-carne.png" alt="Tortellettis de carne y verduras">
+  <h3>Tortellettis de carne y espinaca</h3>
+  <p>Tortellettis rellenos con carne y espinaca de 500gr.</p>
+  <p class="precio" data-precio="3600">$3.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tortellettis con carne y espinaca" data-precio="3600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/tortellettis-muzza.png" alt="Tortellettis muzzarella y jamón">
+  <h3>Tortellettis Muzzarella y jamón</h3>
+  <p>Tortellettis rellenos con muzzarella y jamón de 500gr.</p>
+  <p class="precio" data-precio="3600">$3.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tortellettis con muzzarella y jamón" data-precio="3600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/capellettis-carne.png" alt="Capellettis de carne y verduras">
+  <h3>Capellettis de carne y verduras</h3>
+  <p>Capellettis rellenos con carne y verduras de 500gr.</p>
+  <p class="precio" data-precio="3600">$3.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Capellettis de carne y verduras" data-precio="3600">Agregar al carrito</button>
+</div><div class="producto">
+  <img src="images/pastas-frescas/capellettis-muzza.png" alt="Capellettis muzzarella y jamón">
+  <h3>Capellettis Muzzarella y jamón</h3>
+  <p>Capellettis rellenos con muzzarella y jamón de 500gr.</p>
+  <p class="precio" data-precio="3600">$3.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Capellettis con muzzarella y jamón" data-precio="3600">Agregar al carrito</button>
+</div>
+      <!-- Pastas frescas -->
+
+        <div class="producto">
+  <img src="images/pastas-frescas/tallarines.png" alt="Tallarines">
+  <h3>Tallarines</h3>
+  <p>Tallarines al huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tallarines al huevo" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/tallarines-morron.png" alt="Tallarines con morrón">
+  <h3>Tallarines con morrón </h3>
+  <p>Tallarines con morrón 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="tallarines con morrón" data-precio="2600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/tallarines-espinaca.png" alt="Tallarines con espinaca">
+  <h3>Tallarines con espinaca</h3>
+  <p>Tallarines con espinaca 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tallarines con espinaca" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/macarrones.png" alt="Macarrones">
+  <h3>Macarrones</h3>
+  <p>Blister de macarrones al huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Macarrones" data-precio="2600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/finitos.png" alt="Finitos">
+  <h3>Finitos</h3>
+  <p>blister de fideos finitos al huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Finitos" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/mostacholes.png" alt="Mostacholes">
+  <h3>Mostacholes </h3>
+  <p>Blister de mostacholes con huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Mostacholes" data-precio="2600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/cintas-medianas.png" alt="Cintas medianas">
+  <h3>Cintas medianas</h3>
+  <p>Cintas medianas con huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Cintas medianas" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/cinta-ancha.png" alt="Cintas anchas">
+  <h3>Cintas anchas</h3>
+  <p>Blister de fideos cintas anchas con huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Cintas anchas" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/cintas-verdes.png" alt="Cintas anchas con espinaca">
+  <h3>Cintas anchas  con espinaca</h3>
+  <p>Blister de cintas anchas con espinaca 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Cintas anchas con espinaca" data-precio="2600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/fusiles.png" alt="Fusiles">
+  <h3>Fusiles</h3>
+  <p>Blister de fideos fusiles con huevo 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Fusiles" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/fusiles-espinaca.png" alt="Fusiles con espinaca">
+  <h3>fusiles con espinaca </h3>
+  <p>Blister de fideos fusiles con espinaca 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Fusiles con espinaca" data-precio="2600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/pastas-frescas/fusiles-tricolor.png" alt="Fusiles tricolor">
+  <h3>fusiles tricolor</h3>
+  <p>Blister de fusiles tricolor 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Fusiles tricolor" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ñoquis.png" alt="Ñoquis de papa">
+  <h3>Ñoquis de papa</h3>
+  <p>Blister de ñoquis de papa 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ñoquis de papa" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ñoquis-espinaca.png" alt="Ñoquis con espinaca">
+  <h3>Ñoquis con espinaca</h3>
+  <p>Blister de ñoquis con espinaca 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ñoquis con espinaca" data-precio="2600">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/pastas-frescas/ñoquis-tricolor.png" alt="Ñoquis tricolor">
+  <h3>Ñoquis tricolor</h3>
+  <p>Blister de ñoquis tricolor 500gr.</p>
+  <p class="precio" data-precio="2600">$2.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Ñoquis tricolor" data-precio="2600">Agregar al carrito</button>
+</div>
+        <!-- Repetir según cantidad de productos -->
+      </section>
+    </main>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p><i class="fas fa-envelope"></i> 
+        <a href="mailto:ponelaolla1@gmail.com">ponelaolla1@gmail.com</a>
+      </p>
+      <p><i class="fas fa-phone"></i> 
+        <a href="tel:1173687967">11-7368-7967</a>
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <h4>Desarrollador</h4>
+      <p>Sayago creaciones</p>
+      <p><i class="fas fa-envelope"></i>
+      <a href="mailto:alex_sam951@hotmail.com.ar" style=" font-size: 1rem;" >alex_sam951@hotmail.com.ar</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Poné la olla | Todos los derechos reservados</p>
+  </div>
+</footer>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdown = document.querySelector(".dropdown-content");
+
+  // Toggle al hacer click en Productos
+  dropbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("show");
+  });
+
+  const toggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  toggle.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+  });
+
+  // Cierra si se hace click fuera del dropdown
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
+
+
+  </script>
+<script src="js/agregar-carrito.js"></script>
+</body>
+</html>

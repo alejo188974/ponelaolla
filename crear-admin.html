@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Usuario Admin | Poné la olla</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+body { font-family: 'Arial', sans-serif; background:#f5f5f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+.container { background:white; padding:40px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); width:350px; text-align:center; }
+h1 { margin-bottom:20px; color:#333; }
+input, select { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc; }
+button { width:100%; padding:10px; margin-top:10px; border:none; background:#25D366; color:white; font-weight:bold; border-radius:6px; cursor:pointer; }
+button:hover { background:#20b857; }
+#error-msg { margin-top:10px; color:red; }
+#success-msg { margin-top:10px; color:green; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Crear Usuario</h1>
+  <form id="crear-form">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required minlength="6">
+    <select id="rol" required>
+      <option value="usuario" selected>Usuario</option>
+      <option value="admin">Admin</option>
+      <option value="superadmin">Super Admin</option>
+    </select>
+    <button type="submit">Crear Usuario</button>
+  </form>
+  <p id="error-msg"></p>
+  <p id="success-msg"></p>
+</div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const supabaseUrl = "https://uyxtdfkryqpmikdtyalz.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5eHRkZmtyeXFwbWlrZHR5YWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyMjcwODgsImV4cCI6MjA3MzgwMzA4OH0.OxCbCbFSyDkqK7UXF3RXqizM-vTZL_uLOw936O2H2a4"; 
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const form = document.getElementById("crear-form");
+const errorMsg = document.getElementById("error-msg");
+const successMsg = document.getElementById("success-msg");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorMsg.textContent = "";
+  successMsg.textContent = "";
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const password = document.getElementById("password").value;
+  const rol = document.getElementById("rol").value;
+
+  // 1. Crear usuario en AUTH
+  const { data: authData, error: authError } = await supabase.auth.signUp({
+    email,
+    password
+  });
+
+  if (authError) {
+    errorMsg.textContent = "Error al crear usuario en Auth: " + authError.message;
+    return;
+  }
+
+  const userId = authData.user?.id;
+  if (!userId) {
+    errorMsg.textContent = "No se pudo obtener el ID del usuario.";
+    return;
+  }
+
+  // 2. Guardar info extendida en la tabla "usuarios"
+  const { error: dbError } = await supabase.from("usuarios").insert([
+    { id_auth: userId, nombre, email, rol }
+  ]);
+
+  if (dbError) {
+    errorMsg.textContent = "Error al guardar datos en la DB: " + dbError.message;
+    return;
+  }
+
+  successMsg.textContent = `Usuario ${nombre} creado con rol ${rol}. Redirigiendo al login...`;
+
+  form.reset();
+
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 2000);
+});
+</script>
+</body>
+</html>

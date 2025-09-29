@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin Login | Poné la olla</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { font-family: 'Arial',sans-serif; background:#f5f5f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+  .login-container { background:white; padding:34px; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.07); width:340px; text-align:center; }
+  h1 { margin-bottom:18px; color:#333; }
+  input { width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ddd; box-sizing:border-box; }
+  button { width:100%; padding:10px; margin-top:12px; border:none; background:#25D366; color:white; font-weight:700; border-radius:8px; cursor:pointer; }
+  button[disabled] { opacity:.6; cursor:not-allowed; }
+  #error-msg { margin-top:10px; color:#b00020; min-height:20px; }
+  .small { font-size:0.9rem; color:#666; margin-top:8px; }
+</style>
+</head>
+<body>
+  <div class="login-container" role="main">
+    <h1>Admin Login</h1>
+    <form id="login-form" autocomplete="on">
+      <input type="email" id="email" name="email" placeholder="Correo" autocomplete="email" required />
+      <input type="password" id="password" name="password" placeholder="Contraseña" autocomplete="current-password" required minlength="6" />
+      <button id="btn-login" type="submit">Ingresar</button>
+    </form>
+    <p id="error-msg" aria-live="polite"></p>
+    <p class="small">Si no tenés usuario, hablale al superadmin para que te agregue.</p>
+  </div>
+
+  <script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+  const SUPABASE_URL = "https://uyxtdfkryqpmikdtyalz.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5eHRkZmtyeXFwbWlrZHR5YWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyMjcwODgsImV4cCI6MjA3MzgwMzA4OH0.OxCbCbFSyDkqK7UXF3RXqizM-vTZL_uLOw936O2H2a4";
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const form = document.getElementById("login-form");
+  const errEl = document.getElementById("error-msg");
+  const btn = document.getElementById("btn-login");
+
+  function showError(msg) { errEl.textContent = msg; }
+  function clearError() { errEl.textContent = ""; }
+  function setLoading(on) {
+    btn.disabled = on;
+    btn.textContent = on ? "Ingresando..." : "Ingresar";
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearError();
+
+    const email = (document.getElementById("email").value || "").trim().toLowerCase();
+    const password = document.getElementById("password").value || "";
+
+    if (!email || !password) {
+      showError("Completá email y contraseña.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      // 1) Login en Supabase Auth
+      const { data: authData, error: authErr } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (authErr || !authData?.user) {
+        console.error("Auth error:", authErr);
+        showError("Correo o contraseña incorrectos.");
+        setLoading(false);
+        return;
+      }
+
+      const user = authData.user;
+
+      // 2) Buscar metadata en la tabla usuarios usando id_auth
+      const { data: usuarioMeta, error: metaErr } = await supabase
+        .from("usuarios")
+        .select("id, id_auth, nombre, email, rol")
+        .eq("id_auth", user.id)
+        .maybeSingle();
+
+      if (metaErr || !usuarioMeta) {
+        console.error("Meta error:", metaErr);
+        await supabase.auth.signOut();
+        showError("Tu cuenta no está habilitada para acceder. Contactá al administrador.");
+        setLoading(false);
+        return;
+      }
+
+      const rol = usuarioMeta.rol || "usuario";
+      if (!["admin","superadmin"].includes(rol)) {
+        await supabase.auth.signOut();
+        localStorage.removeItem("userData");
+        showError("No tenés permisos para ingresar. Serás redirigido.");
+        setTimeout(() => window.location.href = "index.html", 1600);
+        return;
+      }
+
+      // 3) Guardar info mínima en localStorage
+      const userData = {
+        id_auth: user.id,
+        email: usuarioMeta.email,
+        nombre: usuarioMeta.nombre,
+        rol
+      };
+      localStorage.setItem("adminLogged", "true");
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      // 4) Redirigir al panel admin
+      window.location.href = "admin.html";
+
+    } catch (err) {
+      console.error("Login exception:", err);
+      showError("Hubo un error. Intentá de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  });
+  </script>
+</body>
+</html>

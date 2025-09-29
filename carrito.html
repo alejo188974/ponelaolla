@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito de Compras | Poné la olla</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- CHAT FLOTANTE -->
+  <a href="https://wa.me/5491173687967" target="_blank" style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-size:18px; z-index:1000;">
+    💬 Chatear
+  </a>
+
+  <!-- BOTÓN CARRITO -->
+  <a href="carrito.html" class="btn-carrito">🛒 Ver carrito</a>
+
+  <div class="container">
+    <header>
+      <img class="logo" src="images/logo.png" alt="Logo Poné la olla">
+      <h1>Poné la olla</h1>
+      <img class="cabana" src="images/cabana.png" alt="logo La Cabaña">
+      <div class="social-icons">
+        <a href="https:/www.instagram.com/ponelaollaok" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@pone.la.olla?_t=ZM-8wnMJIacrJ8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/5491173687967" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Productos ▾</a>
+          <ul class="dropdown-content"  >
+            <li><a href="almacen.html">Almacén</a></li>
+            <li><a href="fiambres.html">Fiambres</a></li>
+            <li><a href="pastas.html">Pastas frescas</a></li>
+            <li><a href="tapas.html">Tapas</a></li>
+            <li><a href="bebidas.html">Bebidas</a></li>
+            <li><a href="lacteos.html">Lácteos</a></li>
+          </ul>
+        </li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="carrito-container">
+        <!-- Productos del carrito se cargarán aquí -->
+      </section>
+      <div id="total-container">
+        <strong>Total: $<span id="total">0.00</span></strong>
+      </div>
+      <div style="margin:20px 0;">
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+      </div>
+      <div id="formulario-pedido">
+  <h2>Datos del cliente</h2>
+  <form id="pedido-form">
+    <label for="cliente">Nombre completo:</label>
+    <input type="text" id="cliente" name="cliente" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion" required>
+
+    <label for="forma_pago">Forma de pago:</label>
+    <select id="forma_pago" name="forma_pago" required>
+      <option value="">Seleccionar...</option>
+      <option value="Efectivo">Efectivo</option>
+      <option value="Mercado pago">Mercado Pago</option>
+      <option value="CuentaDNI">Cuenta D.N.I.</option>
+    </select>
+    <label for="comentario">Comentario (ej: portón verde, timbre 3°B):</label>
+<textarea id="comentario" name="comentario"></textarea>
+
+
+    <button type="submit" id="finalizar-compra">Confirmar compra</button>
+  </form>
+</div>
+
+    </main>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p><i class="fas fa-envelope"></i> 
+        <a href="mailto:ponelaolla1@gmail.com">ponelaolla1@gmail.com</a>
+      </p>
+      <p><i class="fas fa-phone"></i> 
+        <a href="tel:1173687967">11-7368-7967</a>
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <h4>Desarrollador</h4>
+      <p>Sayago creaciones</p>
+      <p><i class="fas fa-envelope"></i>
+      <a href="mailto:alex_sam951@hotmail.com.ar" style=" font-size: 1rem;" >alex_sam951@hotmail.com.ar</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Poné la olla | Todos los derechos reservados</p>
+  </div>
+</footer>
+
+  </div>
+
+  <!-- SCRIPTS -->
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdown = document.querySelector(".dropdown-content");
+
+  // Toggle al hacer click en Productos
+  dropbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("show");
+  });
+
+  const toggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  toggle.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+  });
+
+  // Cierra si se hace click fuera del dropdown
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
+
+
+  </script>
+  <script type="module" src="./js/carrito.js"></script>
+
+</body>
+</html>

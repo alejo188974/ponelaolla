@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título SEO -->
+  <title>Venta de pastas caseras en San Justo | Poné la olla</title>
+
+  <!-- Descripción SEO -->
+  <meta name="description" content="Poné la olla es tu tienda de confianza en San Justo para comprar pastas frescas, caseras y con el mejor sabor. Descubrí nuestros productos artesanales.">
+
+  <!-- Palabras clave (opcional) -->
+  <meta name="keywords" content="pastas caseras, venta de pastas, San Justo, fideos, ravioles, sorrentinos, Poné la olla, pastas frescas, pastas artesanales">
+
+  <!-- Autor -->
+  <meta name="author" content="Martin Alejandro Sayago">
+
+  <!-- Robots para buscadores -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Geolocalización -->
+  <meta name="geo.region" content="AR-B">
+  <meta name="geo.placename" content="San Justo, Buenos Aires">
+  <meta name="geo.position" content="-34.6833;-58.5667">
+  <meta name="ICBM" content="-34.6833, -58.5667">
+
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Poné la olla | Venta de pastas en San Justo">
+  <meta property="og:description" content="Tienda de pastas frescas caseras en San Justo. Descubrí nuestros sabores.">
+  <meta property="og:image" content="https://tusitio.com/imagen-og.jpg"><!-- Cambiar por la URL de tu imagen -->
+  <meta property="og:url" content="https://tusitio.com"><!-- Cambiar por la URL real de tu sitio -->
+  <meta property="og:type" content="website">
+
+  <!-- Ícono del sitio -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Fuente y librerías opcionales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+  <link rel="stylesheet" href="css/styles.css">
+</hea>
+<body>
+    <!-- CHAT FLOTANTE -->
+  <a href="https://wa.me/5491173687967" target="_blank" style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-size:18px; z-index:1000;">
+    💬 Chatear
+  </a>
+
+  <!-- BOTÓN CARRITO -->
+  <a href="carrito.html" class="btn-carrito">🛒 Ver carrito</a>
+
+  <div class="container">
+    <header>
+      <img class="logo" src="images/logo.png" alt="Logo Poné la olla">
+      <h1>Poné la olla</h1>
+      <img class="cabana" src="images/cabana.png" alt="logo La Cabaña">
+      <div class="social-icons">
+        <a href="https:/www.instagram.com/ponelaollaok" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@pone.la.olla?_t=ZM-8wnMJIacrJ8&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/5491173687967" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Productos ▾</a>
+          <ul class="dropdown-content"  >
+            <li><a href="almacen.html">Almacén</a></li>
+            <li><a href="fiambres.html">Fiambres</a></li>
+            <li><a href="pastas.html">Pastas frescas</a></li>
+            <li><a href="tapas.html">Tapas</a></li>
+            <li><a href="bebidas.html">Bebidas</a></li>
+            <li><a href="lacteos.html">Lácteos</a></li>
+          </ul>
+        </li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="ofertas">
+    <div class="oferta">
+        <img onclick="openLightbox('images/promo-ravioles.png', '10 planchas de ravioles a elección. Vos elegis los sabores que mas te gusten.', '$15.500')" src="images/promo-ravioles.png" alt="Oferta 1" />
+        <p class="tittle">10 Planchas de ravioles a elección</p>
+        <p class="precio" data-precio="1400">$15.500</p>
+        <button class="agregar-carrito" data-nombre="Promo ravioles" data-precio="15500" style="margin-top: 40px;" >Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promo-raviolones.png', '6 planchas de raviolones, sabores a elección.', '$14.500')" src="images/promo-raviolones.png" alt="Oferta 2" />
+        <p class="tittle">6 Planchas de raviolones</p>
+        <p class="precio" data-precio="14500">$14.500</p>
+        <button class="agregar-carrito" data-nombre="Raviolones" data-precio="14500">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promo-sorrentinos.png', '6 planchas de sorrentinos, sabores a elección.', '$14.500')" src="images/promo-sorrentinos.png" alt="Oferta 3" />
+        <p class="tittle">6 Planchas de sorrentinos</p>
+        <p class="precio" data-precio="14500">$14.500</p>
+        <button class="agregar-carrito" data-nombre="Sorrentinos" data-precio="14500">Agregar al carrito</button>
+    </div>
+
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/tallarines.png', '6 Blisters de fideos frescos. Elegis como quieras.', '$13.400')" src="images/promociones/tallarines.png" alt="Oferta 1" />
+        <p class="tittle">6 Blisters de pastas frescas a eleccion. </p>
+        <p class="precio" data-precio="1400">$13400</p>
+        <button class="agregar-carrito" data-nombre="Promo fideos" data-precio="13400">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/5-comidas.png', '2 planchas de ravioles, 1 blister de fideos, y blister de ñoquis, una salsa a elección y un queso rayado.', '$10.400')" src="images/promociones/5-comidas.png" alt="Oferta 2" />
+        <p class="tittle">Promo 5 Comidas para dos personas</p>
+        <p class="precio" data-precio="10400">$10.400</p>
+        <button class="agregar-carrito" data-nombre="5 Comidas" data-precio="14500">Agregar al carrito</button>
+    </div>
+
+      <!-- Promos de tapas de empanadas -->
+
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/emp-criollas.png', '6 docenas de tapas de empanadas para freir/horno', '$8.400')" src="images/promociones/emp-criollas.png" alt="Oferta 3" />
+        <p class="tittle">6 Tapas de empanadas criollas freir/horno.</p>
+        <p class="precio" data-precio="8400">$8.400</p>
+        <button class="agregar-carrito" data-nombre="6 tapas de empanadas " data-precio="8400">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/emp-hojaldre.png', '4 paquetes de 15 unidades de tapas de empanadas de hojaldre.', '$6.00')" src="images/promociones/emp-hojaldre.png" alt="Oferta 3" />
+        <p class="tittle">6 Tapas de empanadas hojaldradas freir/horno.</p>
+        <p class="precio" data-precio="6000">$6.000</p>
+        <button class="agregar-carrito" data-nombre="4 tapas de empanadas de hojaldre" data-precio="6000">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/copetin.png', '4 Paquetes de 24 tapas de copetín freir/horno.', '$6.000')" src="images/promociones/copetin.png" alt="Oferta 3" />
+        <p class="tittle">4 Paquetes de 24 tapas de copetín freir/horno.</p>
+        <p class="precio" data-precio="6000">$6.000</p>
+        <button class="agregar-carrito" data-nombre="4 paquetes de copetín " data-precio="6000">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/pastelitos.png', '4 Paquetes de 24 tapas de pastelitos freir/horno.', '$6.000')" src="images/promociones/pastelitos.png" alt="Oferta 3" />
+        <p class="tittle">4 Paquetes de 24 tapas de pastelitos freir/horno.</p>
+        <p class="precio" data-precio="6000">$6.000</p>
+        <button class="agregar-carrito" data-nombre="6 paquetes detapas de pastelitos " data-precio="6000">Agregar al carrito</button>
+    </div>
+
+    <!-- Promos de tapas de Pascualinas -->
+
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/pascualinas.png', '2 Blisters de tapas de pascualinas criollas 380gr', '$7.000')" src="images/promociones/pascualinas.png" alt="Oferta 3" />
+        <p class="tittle">2 Blisters de Tapas de pacualinas criollas .</p>
+        <p class="precio" data-precio="7000">$7.000</p>
+        <button class="agregar-carrito" data-nombre="2 tapas de pacualinas " data-precio="8400">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/pascualinas-hojaldre.png', '2 Blister de tapas de pascualinas de hojaldre 390gr.', '$6.00')" src="images/promociones/pascualinas-hojaldre.png" alt="Oferta 3" />
+        <p class="tittle">2 Bisters de Tapas de pascualinas hojaldradas.</p>
+        <p class="precio" data-precio="7300">$7.300</p>
+        <button class="agregar-carrito" data-nombre="4 tapas de empanadas de hojaldre" data-precio="7300">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/pascualinas-integrales.png', '2 Bisters de Tapas de pascualinas integrales.', '$3.800')" src="images/promociones/pascualinas-integrales.png" alt="Oferta 3" />
+        <p class="tittle">2 Bisters de Tapas de pascualinas integrales.</p>
+        <p class="precio" data-precio="3800">$3.800</p>
+        <button class="agregar-carrito" data-nombre="Promo pascualinas integrales. " data-precio="3800">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/pascualinas-roticeras.png', '3 Bisters de Tapas de pascualinas roticeras.', '$3.800')" src="images/promociones/pascualinas-roticeras.png" alt="Oferta 3" />
+        <p class="tittle">3 Bisters de Tapas de pascualinas roticeras.</p>
+        <p class="precio" data-precio="6200">$6.200</p>
+        <button class="agregar-carrito" data-nombre="Promo pascualinas integrales. " data-precio="6200">Agregar al carrito</button>
+    </div>
+
+    <hr style="display: block; width: 80vw;">
+    <h3 class="promo-fiambres">Promociones de fiambres</h3>
+
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/jamon-queso.png', '250gr de jamón cocido y 250gr de queso de maquina.', '$6.500')" src="images/promociones/jamon-queso.png" alt="Oferta 3" />
+        <p class="tittle">Promo 1/4 jamón y 1/4 queso.</p>
+        <p class="precio" data-precio="6500">$6.500</p>
+        <button class="agregar-carrito" data-nombre="Promo 1/4 de Jamón y queso. " data-precio="6500">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/promo-2.png', '3 Bisters de Tapas de pascualinas roticeras.', '$4.600')" src="images/promociones/promo-2.png" alt="Oferta 3" />
+        <p class="tittle">Promo 100gr de mortadela, 100gr salchichon, 100gr jamon y 100gr queso.</p>
+        <p class="precio" data-precio="4600">$4.600</p>
+        <button class="agregar-carrito" data-nombre="Promo pascualinas integrales. " data-precio="6200">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/promo-3.png', '3 Bisters de Tapas de pascualinas roticeras.', '$3.800')" src="images/promociones/promo-3.png" alt="Oferta 3" />
+        <p class="tittle">3 Bisters de Tapas de pascualinas roticeras.</p>
+        <p class="precio" data-precio="6200">$6.200</p>
+        <button class="agregar-carrito" data-nombre="Promo pascualinas integrales. " data-precio="6200">Agregar al carrito</button>
+    </div>
+    <div class="oferta">
+        <img onclick="openLightbox('images/promociones/promo-4.png', '100gr de jamón, 100gr de queso, 100gr de salame, un pan lactal 520gr.', '$7.400')" src="images/promociones/promo-4.png" alt="Oferta 3" />
+        <p class="tittle">Promoción sandwich listo.</p>
+        <p class="precio" data-precio="7400">$7.400</p>
+        <button class="agregar-carrito" data-nombre="Promo pascualinas integrales. " data-precio="7400">Agregar al carrito</button>
+    </div>
+
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" />
+        <p id="lightbox-desc"></p>
+        <p id="lightbox-price"></p>
+    </div>
+    </div>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p><i class="fas fa-envelope"></i> 
+        <a href="mailto:ponelaolla1@gmail.com">ponelaolla1@gmail.com</a>
+      </p>
+      <p><i class="fas fa-phone"></i> 
+        <a href="tel:1173687967">11-7368-7967</a>
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <h4>Desarrollador</h4>
+      <p>Sayago creaciones</p>
+      <p><i class="fas fa-envelope"></i>
+      <a href="mailto:alex_sam951@hotmail.com.ar" style=" font-size: 1rem;" >alex_sam951@hotmail.com.ar</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Poné la olla | Todos los derechos reservados</p>
+  </div>
+</footer>
+
+    </div>
+    <script>
+    function openLightbox(img, desc, price) {
+      document.getElementById('lightbox-img').src = img;
+      document.getElementById('lightbox-desc').textContent = desc;
+      document.getElementById('lightbox-price').textContent = price;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+
+
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdown = document.querySelector(".dropdown-content");
+
+  // Toggle al hacer click en Productos
+  dropbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("show");
+  });
+
+  const toggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  toggle.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+  });
+
+  // Cierra si se hace click fuera del dropdown
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
+
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const botonesAgregar = document.querySelectorAll(".agregar-carrito");
+
+  botonesAgregar.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const productoDiv = btn.closest(".producto" || ".oferta");
+      const nombre = btn.dataset.nombre;
+      const precio = parseFloat(btn.dataset.precio);
+      const cantidad = "1";
+
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      // Si el producto ya está en el carrito, sumamos cantidades
+      const index = carrito.findIndex(item => item.nombre === nombre);
+      if (index > -1) {
+        carrito[index].cantidad += cantidad;
+      } else {
+        carrito.push({ nombre, precio, cantidad });
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`✅ ${nombre} agregado al carrito (${cantidad})`);
+    });
+  });
+});
+
+  </script>
+
+</body>
+</html>

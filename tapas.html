@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapas | Poné la olla</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- CHAT FLOTANTE -->
+  <a href="https://wa.me/5491173687967" target="_blank" style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-size:18px; z-index:1000;">
+    💬 Chatear
+  </a>
+
+  <!-- BOTÓN CARRITO -->
+  <a href="carrito.html" class="btn-carrito">🛒 Ver carrito</a>
+  <div class="container">
+    <header>
+      <img class="logo" src="images/logo.png" alt="Logo Poné la olla">
+      <h1>Tapas</h1>
+      <img class="cabana" src="images/cabana.png" alt="logo La Cabaña">
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Productos ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="almacen.html">Almacén</a></li>
+            <li><a href="fiambres.html">Fiambres</a></li>
+            <li><a href="pastas.html">Pastas frescas</a></li>
+            <li><a href="tapas.html">Tapas</a></li>
+            <li><a href="bebidas.html">Bebidas</a></li>
+            <li><a href="lacteos.html">Lácteos</a></li>
+          </ul>
+        </li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="productos">
+
+        <!-- Productos  -->
+          <div class="producto">
+  <img src="images/tapas/criollas.jpeg" alt="Tapas de empanadas criollas">
+  <h3>Tapas de empanadas criollas</h3>
+  <p>tapas de empanadas criollas x12 para freir y horno.</p>
+  <p class="precio" data-precio="1500">$1.500</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de empanadas criollas" data-precio="1500">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/tapas/hojaldre.jpeg" alt="Tapas de empanadas hojaldradas">
+  <h3>Tapas de empanadas hojaldradas</h3>
+  <p>Tapas de empanadas de hojaldre x15.</p>
+  <p class="precio" data-precio="1600">$1.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de empanadas hojaldradas" data-precio="1600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/tapas/tapas-blisters.jpeg" alt="Tapas de Blister">
+  <h3>Tapas de empanadas blister</h3>
+  <p>Tapas de empanadas de blisters x16.</p>
+  <p class="precio" data-precio="1800">$1.800</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de empanadas de blisters" data-precio="1800">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/tapas/tapas-integrales.jpeg" alt="Tapas de empanadas integrales">
+  <h3>Tapas de empanadas integrales</h3>
+  <p>Tapas de empanadas integrales x12.</p>
+  <p class="precio" data-precio="1600">$1.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de empanadas integrales" data-precio="1600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/tapas/tapas-roticeras.jpeg" alt="Tapas de empanadas rotiseras">
+  <h3>Tapas de empanadas rotiseras</h3>
+  <p>Tapas de empanadas rotiseras x12.</p>
+  <p class="precio" data-precio="2100">$2.100</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de empanadas rotiseras" data-precio="2100">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/tapas/copetin.jpeg" alt="Tapas de copetin">
+  <h3>Tapas de copetin</h3>
+  <p>Tapas de copetin x24.</p>
+  <p class="precio" data-precio="1600">$1.600</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de copetin" data-precio="1600">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/tapas/pastelitos.jpeg" alt="Tapas de pastelitos">
+  <h3>Tapas de pastelitos</h3>
+  <p>Tapas de pastelitos x12.</p>
+  <p class="precio" data-precio="1600">$1.600</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pastelitos" data-precio="1600">Agregar al carrito</button>
+</div>
+
+<!-- Tapas de pascualinas -->
+
+<div class="producto">
+  <img src="images/tapas/pascualinas-criollas.jpeg" alt="Tapas de pascualinas criollas">
+  <h3>Tapas de pascualinas criollas</h3>
+  <p>Tapas de pascualinas criollas x2 380gr.</p>
+  <p class="precio" data-precio="1800">$1.800</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pascualinas criollas" data-precio="1800">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/tapas/pascualinas-hojaldre.jpeg" alt="Tapas de pascualinas hojaldradas">
+  <h3>Tapas de pascualinas hojaldradas</h3>
+  <p>Tapas de pascualinas hojaldradas x2 390gr.</p>
+  <p class="precio" data-precio="1900">$1.900</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pascualinas hojaldradas" data-precio="1900">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/tapas/pascualinas-individuales.jpeg" alt="Tapas de pascualinas individuales">
+  <h3>Tapas de pascualinas individuales</h3>
+  <p>Tapas de pascualinas individuales x2 200gr.</p>
+  <p class="precio" data-precio="1200">$1.200</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pascualinas individuales" data-precio="1200">Agregar al carrito</button>
+</div>
+        <div class="producto">
+  <img src="images/tapas/pasculinas-integrales.jpeg" alt="Tapas de pascualinas integral">
+  <h3>Tapas de pascualinas integral</h3>
+  <p>Tapas de pascualinas integral x2 390gr.</p>
+  <p class="precio" data-precio="2000">$2.000</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pascualinas integral" data-precio="2000">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="images/tapas/pascualinas-roticeras.jpeg" alt="Tapas de pascualinas especiales">
+  <h3>Tapas de pascualinas especiales</h3>
+  <p>Tapas de pascualinas especiales (roticeras) x2 500gr.</p>
+  <p class="precio" data-precio="2300">$2.300</p>
+  <label>Cantidad:</label>
+  <select class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas de pascualinas especiales" data-precio="2300">Agregar al carrito</button>
+</div>
+
+<!-- Tubos -->
+
+        <div class="producto">
+  <img src="images/tapas/tubo-mediano.jpeg" alt="Tapas roticeras tubo mediano">
+  <h3>Tapas roticeras tubo mediano</h3>
+  <p>Tapas roticeras tubo mediano x 4 docenas 1680gr.</p>
+  <p class="precio" data-precio="7300">$7.300</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas roticeras tubo mediano" data-precio="7300">Agregar al carrito</button>
+</div>
+ <div class="producto">
+  <img src="images/tapas/tubo-grande.jpeg" alt="Tapas roticeras tubo grande">
+  <h3>Tapas roticeras tubo grande</h3>
+  <p>Tapas roticeras tubo grande x 4 docenas 2080gr.</p>
+  <p class="precio" data-precio="7800">$7.800</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas roticeras tubo grande" data-precio="7800">Agregar al carrito</button>
+</div>
+    <div class="producto">
+  <img src="images/tapas/tubo-hojaldre.jpeg" alt="Tapas roticeras tubo grande hojaldradas">
+  <h3>Tapas roticeras tubo grande hojaldradas</h3>
+  <p>Tapas roticeras tubo grande hojaldradas x 4 docenas 2080gr.</p>
+  <p class="precio" data-precio="8400">$8.400</p>
+  <label>Cantidad:</label>
+  <select  class="cantidad">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="agregar-carrito" data-nombre="Tapas roticeras tubo grande" data-precio="8400">Agregar al carrito</button>
+</div>
+        <!-- Repetir según cantidad de productos -->
+      </section>
+    </main>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-links">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p><i class="fas fa-envelope"></i> 
+        <a href="mailto:ponelaolla1@gmail.com">ponelaolla1@gmail.com</a>
+      </p>
+      <p><i class="fas fa-phone"></i> 
+        <a href="tel:1173687967">11-7368-7967</a>
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <h4>Desarrollador</h4>
+      <p>Sayago creaciones</p>
+      <p><i class="fas fa-envelope"></i>
+      <a href="mailto:alex_sam951@hotmail.com.ar" style=" font-size: 1rem;" >alex_sam951@hotmail.com.ar</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Poné la olla | Todos los derechos reservados</p>
+  </div>
+</footer>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdown = document.querySelector(".dropdown-content");
+
+  // Toggle al hacer click en Productos
+  dropbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("show");
+  });
+
+  const toggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  toggle.addEventListener("click", function () {
+    navbar.classList.toggle("active");
+  });
+
+  // Cierra si se hace click fuera del dropdown
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      dropdown.classList.remove("show");
+    }
+  });
+});
+
+
+  </script>
+<script src="js/agregar-carrito.js"></script>
+</body>
+</html>
