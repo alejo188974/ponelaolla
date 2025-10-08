@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ponelaolla.netlify.app/</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/carrito</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/almacen</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/fiambres</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/pastas</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/tapas</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/bebidas</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/lacteos</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/promociones</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/sobre-nosotros</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ponelaolla.netlify.app/contact</loc>
+  <lastmod>2025-10-08T14:29:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
