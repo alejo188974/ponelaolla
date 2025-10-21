@@ -1,4 +1,5 @@
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 
 // 🔑 Credenciales Supabase
 const supabaseUrl = "https://uyxtdfkryqpmikdtyalz.supabase.co";
@@ -105,7 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
         precio: item.precio,
         cantidad: item.cantidad,
       }));
-
+console.log("📦 Pedido a guardar:", {
+  cliente,
+  telefono,
+  direccion,
+  forma_pago,
+  comentario,
+  fecha,
+  productos,
+});
       const { error } = await supabase.from("pedidos").insert([
         {
           cliente,
